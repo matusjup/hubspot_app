@@ -19,16 +19,16 @@ docker-compose up -d
 **Commands**
 1. For composer commands 
 ```
-docker exec hubspot_app composer || do composer install
+docker exec hubspot_app composer
 ```
 2. For Node commands
 ```
-docker run --rm -w /home/node/app -v $PWD:/home/node/app node:16 npm install || do npm install
+docker run --rm -w /home/node/app -v $PWD:/home/node/app node:16 npm install
 ```
 
 3. For Artisan commands
 ```
-docker exec hubspot_app php artisan ...
+docker exec hubspot_app php artisan
 ```
 
 **To stop docker**
