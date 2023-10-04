@@ -1,66 +1,66 @@
-# stages:
-#   - build
-#   - deploy
+stages:
+  - build
+  - deploy
 
-# build_node:
-#   stage: build
-#   only:
-#     - develop
-#     - main
-#   image: node:16
-#   script:
-#     - npm install
-#     - npm run prod
-#   artifacts:
-#     paths:
-#       - node_modules/*
-#       - public/css/*
-#       - public/js/*
+build_node:
+  stage: build
+  only:
+    - develop
+    - main
+  image: node:16
+  script:
+    - npm install
+    - npm run prod
+  artifacts:
+    paths:
+      - node_modules/*
+      - public/css/*
+      - public/js/*
 
-# build_composer:
-#   stage: build
-#   only:
-#     - develop
-#     - main
-#   image: composer:latest
-#   script:
-#     - composer install -n --ignore-platform-reqs --no-scripts
-#   artifacts:
-#     paths:
-#       - vendor/*
+build_composer:
+  stage: build
+  only:
+    - develop
+    - main
+  image: composer:latest
+  script:
+    - composer install -n --ignore-platform-reqs --no-scripts
+  artifacts:
+    paths:
+      - vendor/*
 
-# deploy_develop:
-#   stage: deploy
-#   only:
-#     - develop
-#   before_script:
-#     - eval $(ssh-agent -s)
-#     - echo "$WS_PRIVATE_KEY" | tr -d '\r' | ssh-add -
-#     - mkdir -p ~/.ssh
-#     - chmod 700 ~/.ssh
-#     - echo "$DEV_WS_HOST_KEY" >> ~/.ssh/known_hosts
-#     - chmod 644 ~/.ssh/known_hosts
-#   script:
-#     - export DEPLOY_PATH=/home/emedius.online/web
-#     - >
-#       ssh $DEV_UID@$DEV_SERVER -p$DEV_PORT "
-#       if [ -f $DEPLOY_PATH/docker-compose.yml ];
-#       then
-#         cd $DEPLOY_PATH && git pull;
-#       else
-#         git clone $CI_REPOSITORY_URL $DEPLOY_PATH;
-#       fi"
-#     - ssh $DEV_UID@$DEV_SERVER -p$DEV_PORT "cd $DEPLOY_PATH && git checkout main"
-#     - rsync -az -vv -r -e "ssh -p $DEV_PORT" --delete vendor/* $DEV_UID@$DEV_SERVER:$DEPLOY_PATH/vendor/
-#     - rsync -az -vv -r -e "ssh -p $DEV_PORT" --delete node_modules/* $DEV_UID@$DEV_SERVER:$DEPLOY_PATH/node_modules/
-#     - ssh $DEV_UID@$DEV_SERVER -p$DEV_PORT "cd $DEPLOY_PATH && php artisan view:clear"
-#     - ssh $DEV_UID@$DEV_SERVER -p$DEV_PORT "cd $DEPLOY_PATH && php artisan cache:clear"
-#     - ssh $DEV_UID@$DEV_SERVER -p$DEV_PORT "cd $DEPLOY_PATH && php artisan route:clear"
-#     - ssh $DEV_UID@$DEV_SERVER -p$DEV_PORT "cd $DEPLOY_PATH && php artisan config:clear"
-#     - ssh $DEV_UID@$DEV_SERVER -p$DEV_PORT "cd $DEPLOY_PATH && php artisan migrate --force"
-#     #- ssh $DEV_UID@$DEV_SERVER -p$DEV_PORT "cd $DEPLOY_PATH && php artisan schedule:run >> /dev/null 2>&1"
-#     - rsync -az -vv -e "ssh -p $DEV_PORT" --delete public/css/* $DEV_UID@$DEV_SERVER:$DEPLOY_PATH/public/css/
-#     - rsync -az -vv -e "ssh -p $DEV_PORT" --delete public/js/* $DEV_UID@$DEV_SERVER:$DEPLOY_PATH/public/js/
+deploy_develop:
+  stage: deploy
+  only:
+    - develop
+  before_script:
+    - eval $(ssh-agent -s)
+    - echo "$WS_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "$DEV_WS_HOST_KEY" >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - export DEPLOY_PATH=/home/emedius.online/web
+    - >
+      ssh $DEV_UID@$DEV_SERVER -p$DEV_PORT "
+      if [ -f $DEPLOY_PATH/docker-compose.yml ];
+      then
+        cd $DEPLOY_PATH && git pull;
+      else
+        git clone $CI_REPOSITORY_URL $DEPLOY_PATH;
+      fi"
+    - ssh $DEV_UID@$DEV_SERVER -p$DEV_PORT "cd $DEPLOY_PATH && git checkout main"
+    - rsync -az -vv -r -e "ssh -p $DEV_PORT" --delete vendor/* $DEV_UID@$DEV_SERVER:$DEPLOY_PATH/vendor/
+    - rsync -az -vv -r -e "ssh -p $DEV_PORT" --delete node_modules/* $DEV_UID@$DEV_SERVER:$DEPLOY_PATH/node_modules/
+    - ssh $DEV_UID@$DEV_SERVER -p$DEV_PORT "cd $DEPLOY_PATH && php artisan view:clear"
+    - ssh $DEV_UID@$DEV_SERVER -p$DEV_PORT "cd $DEPLOY_PATH && php artisan cache:clear"
+    - ssh $DEV_UID@$DEV_SERVER -p$DEV_PORT "cd $DEPLOY_PATH && php artisan route:clear"
+    - ssh $DEV_UID@$DEV_SERVER -p$DEV_PORT "cd $DEPLOY_PATH && php artisan config:clear"
+    - ssh $DEV_UID@$DEV_SERVER -p$DEV_PORT "cd $DEPLOY_PATH && php artisan migrate --force"
+    #- ssh $DEV_UID@$DEV_SERVER -p$DEV_PORT "cd $DEPLOY_PATH && php artisan schedule:run >> /dev/null 2>&1"
+    - rsync -az -vv -e "ssh -p $DEV_PORT" --delete public/css/* $DEV_UID@$DEV_SERVER:$DEPLOY_PATH/public/css/
+    - rsync -az -vv -e "ssh -p $DEV_PORT" --delete public/js/* $DEV_UID@$DEV_SERVER:$DEPLOY_PATH/public/js/
 
 # deploy_main:
 #   stage: deploy
