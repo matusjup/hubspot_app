@@ -3,7 +3,7 @@
         <div v-if="error.message && !success.message" class="alert alert-danger col-md-4 py-2" role="alert">
             {{ error.message }}
         </div>
-        <div v-if="success.message && !error.messag" class="alert alert-success col-md-4 py-2" role="alert">
+        <div v-if="success.message && !error.message" class="alert alert-success col-md-4 py-2" role="alert">
             {{ success.message }}
         </div>
         <div class="col-auto d-flex justify-content-between">
@@ -13,14 +13,23 @@
             </div>
         </div>
 
-        <component :is="tabs[ activeTab ].component" :items="tabs[ activeTab ].data" :search_products="searchedProducts" :progress_info="progressInfo" @actionButton="actionButton($event)" />
+        <component
+            :is="tabs[ activeTab ].component"
+            :items="tabs[ activeTab ].data"
+            :search_products="searchedProducts"
+            :progress_info="progressInfo" @actionButton="actionButton($event)"
+        />
 
-        <PopUpModal :data="modalData" :progress_info="progressInfo" :success_message="success.message" @actionButton="actionButton($event)"/>
+        <PopUpModal
+            :data="modalData"
+            :progress_info="progressInfo"
+            :success_message="success.message"
+            @actionButton="actionButton($event)"
+        />
     </div>
 </template>
 
 <script>
-    import IconSvg from '../components/IconSvg.vue'
     import AllProducts from './AllProducts.vue'
     import CreateOrEditProduct from './CreateOrEditProduct.vue'
     import PopUpModal from './PopUpModal.vue'
@@ -28,7 +37,6 @@
     export default {
         name: 'HomePage',
         components: {
-            IconSvg,
             AllProducts,
             CreateOrEditProduct,
             PopUpModal,
@@ -94,8 +102,6 @@
                 let action = items.action
                 let data = items.data ? items.data : data
 
-                console.log( data )
-
                 switch (action) {
                     case 'create':
                         this.progressInfo = true
@@ -138,7 +144,7 @@
             },
             createProduct( data ) {
 
-                if ( data.name == '') {
+                if ( !data.name || data.name == '') {
                     this.failedAction( this.validateField( data.name, this.validateMsg.name ) )
                     return
                 }
@@ -153,7 +159,7 @@
             },
             updateProduct( data ) {
 
-                if ( data.name == '') {
+                if ( !data.name || data.name == '') {
                     this.failedAction( this.validateField( data.name, this.validateMsg.name ) )
                     return
                 }
@@ -177,12 +183,13 @@
 
             },
             showModal( title, data ){
-                console.log( data )
+
                 this.modalData = {
                     show: true,
                     title: title,
                     product: data,
                 }
+
             },
             successAction( message ){
 
@@ -198,7 +205,7 @@
 
                 this.error.message = message
                 this.progressInfo = false
-
+                
             }
         }
     }
