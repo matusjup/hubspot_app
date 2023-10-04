@@ -5,9 +5,6 @@ import { createApp } from 'vue'
 import axios from 'axios'
 import moment from 'moment'
 import globalMixin from "./mixins"
-import vSelect from "vue-select";
-
-// Vue.component("v-select", vSelect);
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
