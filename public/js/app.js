@@ -19643,25 +19643,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _mixins__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./mixins */ "./resources/js/mixins.js");
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.es.js");
-/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
-/* harmony import */ var bootstrap_dist_js_bootstrap_bundle_min__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! bootstrap/dist/js/bootstrap.bundle.min */ "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js");
-/* harmony import */ var bootstrap_dist_js_bootstrap_bundle_min__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_js_bootstrap_bundle_min__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
-/* harmony import */ var _components_IconSvg_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/IconSvg.vue */ "./resources/js/components/IconSvg.vue");
-/* harmony import */ var _admin_HomePage_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./admin/HomePage.vue */ "./resources/js/admin/HomePage.vue");
-/* harmony import */ var _admin_CreateOrEditProduct_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./admin/CreateOrEditProduct.vue */ "./resources/js/admin/CreateOrEditProduct.vue");
-/* harmony import */ var _admin_PopUpModal_vue__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./admin/PopUpModal.vue */ "./resources/js/admin/PopUpModal.vue");
+/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
+/* harmony import */ var bootstrap_dist_js_bootstrap_bundle_min__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! bootstrap/dist/js/bootstrap.bundle.min */ "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js");
+/* harmony import */ var bootstrap_dist_js_bootstrap_bundle_min__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_js_bootstrap_bundle_min__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var vue_select_dist_vue_select_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-select/dist/vue-select.css */ "./node_modules/vue-select/dist/vue-select.css");
+/* harmony import */ var _components_IconSvg_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/IconSvg.vue */ "./resources/js/components/IconSvg.vue");
+/* harmony import */ var _admin_HomePage_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./admin/HomePage.vue */ "./resources/js/admin/HomePage.vue");
+/* harmony import */ var _admin_CreateOrEditProduct_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./admin/CreateOrEditProduct.vue */ "./resources/js/admin/CreateOrEditProduct.vue");
+/* harmony import */ var _admin_PopUpModal_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./admin/PopUpModal.vue */ "./resources/js/admin/PopUpModal.vue");
 /**
  * Vue
  */
 
 
 
-
-
-
-// Vue.component("v-select", vSelect);
 
 
 
@@ -19683,10 +19678,10 @@ window.axios.defaults.headers.common = {
 
 var app = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
   components: {
-    IconSvg: _components_IconSvg_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
-    HomePage: _admin_HomePage_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
-    CreateOrEditProduct: _admin_CreateOrEditProduct_vue__WEBPACK_IMPORTED_MODULE_10__["default"],
-    PopUpModal: _admin_PopUpModal_vue__WEBPACK_IMPORTED_MODULE_11__["default"]
+    IconSvg: _components_IconSvg_vue__WEBPACK_IMPORTED_MODULE_7__["default"],
+    HomePage: _admin_HomePage_vue__WEBPACK_IMPORTED_MODULE_8__["default"],
+    CreateOrEditProduct: _admin_CreateOrEditProduct_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+    PopUpModal: _admin_PopUpModal_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
   }
 });
 app.mixin(_mixins__WEBPACK_IMPORTED_MODULE_3__["default"]);
