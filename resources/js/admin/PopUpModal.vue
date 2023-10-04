@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <span v-if="!success_message"> Confirm deletion of product "{{ product.properties.name }}"?</span>
+                <span v-if="!success_message">Confirm deletion of product "{{ product.properties.name }}"?</span>
                 <div v-if="success_message" class="alert alert-success col-md-4 py-2" role="alert">
                     {{ success_message }}
                 </div>
