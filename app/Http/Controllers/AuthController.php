@@ -15,48 +15,6 @@ class AuthController extends Controller
      */
     public function index()
     {
-        // $handlerStack = \GuzzleHttp\HandlerStack::create();
-        // $handlerStack->push(
-        //     \HubSpot\RetryMiddlewareFactory::createRateLimitMiddleware(
-        //         \HubSpot\Delay::getConstantDelayFunction()
-        //     )
-        // );
-
-        // $handlerStack->push(
-        //     \HubSpot\RetryMiddlewareFactory::createInternalErrorsMiddleware(
-        //         \HubSpot\Delay::getExponentialDelayFunction(2)
-        //     )
-        // );
-
-        // $client = new \GuzzleHttp\Client(['handler' => $handlerStack]);
-
-        // $hubspot = \HubSpot\Factory::createWithAccessToken( config('services.hubspot.token') , $client);
-
-        // $response = $hubspot->crm()->products()->basicApi()->getPage();
-
-
-        // // Filter
-        // $search = 'DELL';
-
-        // $filter = new \HubSpot\Client\Crm\Products\Model\Filter();
-        // $filter
-        //     ->setOperator('CONTAINS_TOKEN')
-        //     ->setPropertyName('name')
-        //     ->setValue($search);
-
-        // $filterGroup = new \HubSpot\Client\Crm\Products\Model\FilterGroup();
-        // $filterGroup->setFilters([$filter]);
-
-        // $searchRequest = new \HubSpot\Client\Crm\Products\Model\PublicObjectSearchRequest();
-        // $searchRequest->setFilterGroups([$filterGroup]);
-
-        // // Get specific properties
-        // $searchRequest->setProperties(['id', 'name']);
-
-        // $products = $hubspot->crm()->products()->searchApi()->doSearch($searchRequest);
-
-        // dd( $response, $filter, $products );
-
         return view('auth.login');
     }
 
