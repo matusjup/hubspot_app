@@ -12,10 +12,22 @@
                 <tbody>
                     <tr>
                         <th style="width:15%">
-                            <v-select :reduce="products => products.id" label="id" :options="products" :placeholder="`Filtering by ID`" v-model="filter.id"></v-select>
+                            <v-select
+                                :reduce="products => products.id"
+                                label="id"
+                                :options="products"
+                                :placeholder="`Filtering by ID`"
+                                v-model="filter.id">
+                            </v-select>
                         </th>
                         <td>
-                            <v-select :reduce="products => products" label="name" :options="productNames" :placeholder="`Filtering by name`" v-model="filter.name"></v-select>
+                            <v-select
+                                :reduce="products => products"
+                                label="name"
+                                :options="productNames"
+                                :placeholder="`Filtering by name`"
+                                v-model="filter.name">
+                            </v-select>
                         </td>
                         <td></td>
                     </tr>
