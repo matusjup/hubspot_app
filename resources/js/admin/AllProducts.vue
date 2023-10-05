@@ -63,7 +63,7 @@
             items: {
                 type: Object
             },
-            search_products: {
+            searchProducts: {
                 type: Object
             }
         },
@@ -87,7 +87,7 @@
             }
         },
         watch: {
-            'search_products': {
+            'searchProducts': {
                 handler: function ( items ) {
 
                     if( items.length > 0 ) {
