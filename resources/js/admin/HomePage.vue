@@ -16,14 +16,14 @@
         <component
             :is="tabs[ activeTab ].component"
             :items="tabs[ activeTab ].data"
-            :search_products="searchedProducts"
-            :progress_info="progressInfo" @actionButton="actionButton($event)"
+            :searchProducts="searchedProducts"
+            :progressInfo="progressInfo" @actionButton="actionButton($event)"
         />
 
         <PopUpModal
             :data="modalData"
-            :progress_info="progressInfo"
-            :success_message="success.message"
+            :progressInfo="progressInfo"
+            :successMessage="success.message"
             @actionButton="actionButton($event)"
         />
     </div>
@@ -205,7 +205,7 @@
 
                 this.error.message = message
                 this.progressInfo = false
-                
+
             }
         }
     }
