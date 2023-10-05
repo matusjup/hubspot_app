@@ -23,7 +23,7 @@ docker exec hubspot_app composer
 ```
 2. For Node commands
 ```
-docker run --rm -w /home/node/app -v $PWD:/home/node/app node:16 npm install
+docker run --rm -w /home/node/app -v $PWD:/home/node/app node:16 npm
 ```
 
 3. For Artisan commands
@@ -38,6 +38,9 @@ docker-compose down
 
 **Commands**
 ```
-docker exec hubspot_app php artisan migrate:fresh
-docker exec hubspot_app php artisan db:seed
+docker exec hubspot_app composer install
+docker exec hubspot_app php artisan key:generate
+docker exec hubspot_app php artisan migrate:fresh --seed
+docker run --rm -w /home/node/app -v $PWD:/home/node/app node:16 npm install
+docker run --rm -w /home/node/app -v $PWD:/home/node/app node:16 npm run watch
 ```
