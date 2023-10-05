@@ -9,8 +9,8 @@
             <input type="number" class="form-control" id="price" placeholder="Price" v-model="product.properties.price">
         </div>
         <div class="form-group pt-3">
-            <button v-if="!progress_info" type="button" class="btn btn-primary btn-sm" @click="doAction( create ? 'create' : 'update')">Save product</button>
-            <div v-if="progress_info" class="progress col-2">
+            <button v-if="!progressInfo" type="button" class="btn btn-primary btn-sm" @click="doAction( create ? 'create' : 'update')">Save product</button>
+            <div v-if="progressInfo" class="progress col-2">
                 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
             </div>
         </div>
@@ -26,7 +26,7 @@
             items: {
                 type: Object
             },
-            progress_info: {
+            progressInfo: {
                 type: Boolean
             }
         },

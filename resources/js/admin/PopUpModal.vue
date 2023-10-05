@@ -7,15 +7,15 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <span v-if="!success_message">Confirm deletion of product "{{ product.properties.name }}"?</span>
-                <div v-if="success_message" class="alert alert-success col-md-4 py-2" role="alert">
-                    {{ success_message }}
+                <span v-if="!successMessage">Confirm deletion of product "{{ product.properties.name }}"?</span>
+                <div v-if="successMessage" class="alert alert-success col-md-4 py-2" role="alert">
+                    {{ successMessage }}
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button v-if="!progress_info" type="button" class="btn btn-primary" @click="doAction('delete')">Confirm</button>
-                <div v-if="progress_info" class="progress col-2">
+                <button v-if="!progressInfo" type="button" class="btn btn-primary" @click="doAction('delete')">Confirm</button>
+                <div v-if="progressInfo" class="progress col-2">
                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
                 </div>
             </div>
@@ -33,10 +33,10 @@
             data: {
                 type: Object
             },
-            progress_info: {
+            progressInfo: {
                 type: Boolean
             },
-            success_message: {
+            successMessage: {
                 type: String
             }
         },
