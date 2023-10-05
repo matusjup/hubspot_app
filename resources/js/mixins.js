@@ -14,7 +14,7 @@ export default {
          * @param {*} format
          * @returns
          */
-        formatDate( date, format = 'DD.MM.YYYY' ) {
+        formatDate( date, format = 'DD.MM.YYYY' ){
             return moment( date ).format( format )
         },
         /**
@@ -23,10 +23,10 @@ export default {
          * @param {*} dataField text Input
          * @returns
          */
-        validateField(field, custom_text) {
-            if ( field === '' || field === undefined || field === null ) {
+        validateField( field, custom_text ){
+            if( field === '' || field === undefined || field === null ){
                 return custom_text ? custom_text : 'Required'
-            } else {
+            } else{
                 return ''
             }
         },
