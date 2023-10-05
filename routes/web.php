@@ -43,7 +43,7 @@ Route::prefix('google')->name('google.')->group( function() {
 });
 
 /**
- * Google login URL
+ * Github login URL
  */
 Route::prefix('github')->name('github.')->group( function() {
     Route::get('login', [GithubController::class, 'loginUsingGithub'])->name('login');
